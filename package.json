@@ -1,0 +1,17 @@
+{
+  "dependencies": {
+    "puppeteer": "^24.6.1",
+    "puppeteer-core": "^24.6.1"
+  },
+  "name": "cuentica",
+  "version": "1.0.0",
+  "scripts": {
+    "preprocess": "node preprocess_html.js",
+    "markdown": "node to_markdown.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}

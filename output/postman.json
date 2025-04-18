@@ -1,0 +1,1673 @@
+{
+  "info": {
+    "name": "Cuentica API",
+    "description": "API collection for Cuentica accounting service",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-AUTH-TOKEN",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{auth_token}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "https://api.cuentica.com",
+      "type": "string"
+    },
+    {
+      "key": "auth_token",
+      "value": "your_auth_token_here",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "Company",
+      "item": [
+        {
+          "name": "Get Company Data",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/company",
+              "host": ["{{base_url}}"],
+              "path": ["company"]
+            }
+          },
+          "response": [
+            {
+              "name": "Success",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{base_url}}/company",
+                  "host": ["{{base_url}}"],
+                  "path": ["company"]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": {
+                "mode": "raw",
+                "raw": "{\n  \"cif\": \"string\",\n  \"tradename\": \"string\",\n  \"business_name\": \"string\",\n  \"name\": \"string\",\n  \"surname_1\": \"string\",\n  \"surname_2\": \"string\",\n  \"address\": \"string\",\n  \"postal_code\": \"string\",\n  \"town\": \"string\",\n  \"region\": \"string\",\n  \"country_code\": \"string\",\n  \"phone\": \"string\",\n  \"email\": \"string\",\n  \"web\": \"string\",\n  \"fax\": \"string\",\n  \"logo\": \"string\",\n  \"series\": [\n    {\n      \"name\": \"string\",\n      \"default\": true\n    }\n  ]\n}"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Get Company Invoicing Series",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/company/serie",
+              "host": ["{{base_url}}"],
+              "path": ["company", "serie"]
+            }
+          },
+          "response": [
+            {
+              "name": "Success",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{base_url}}/company/serie",
+                  "host": ["{{base_url}}"],
+                  "path": ["company", "serie"]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": {
+                "mode": "raw",
+                "raw": "[\n  {\n    \"name\": \"string\",\n    \"default\": true\n  }\n]"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Account",
+      "item": [
+        {
+          "name": "List Accounts",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/account",
+              "host": ["{{base_url}}"],
+              "path": ["account"]
+            }
+          },
+          "response": [
+            {
+              "name": "Success",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{base_url}}/account",
+                  "host": ["{{base_url}}"],
+                  "path": ["account"]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": {
+                "mode": "raw",
+                "raw": "[\n  {\n    \"id\": 0,\n    \"name\": \"string\",\n    \"number\": \"string\",\n    \"iban\": \"string\",\n    \"type\": \"string\"\n  }\n]"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Get Account by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/account/:id",
+              "host": ["{{base_url}}"],
+              "path": ["account", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "",
+                  "description": "The ID of the account to retrieve"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Success",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{base_url}}/account/:id",
+                  "host": ["{{base_url}}"],
+                  "path": ["account", ":id"]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": {
+                "mode": "raw",
+                "raw": "{\n  \"id\": 0,\n  \"name\": \"string\",\n  \"number\": \"string\",\n  \"iban\": \"string\",\n  \"type\": \"string\"\n}"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Provider",
+      "item": [
+        {
+          "name": "List Providers",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/provider?page_size=100&page=1",
+              "host": ["{{base_url}}"],
+              "path": ["provider"],
+              "query": [
+                {
+                  "key": "page_size",
+                  "value": "100",
+                  "description": "Number of items per page (Max 300)"
+                },
+                {
+                  "key": "page",
+                  "value": "1",
+                  "description": "Page number"
+                },
+                {
+                  "key": "q",
+                  "value": "",
+                  "description": "Search term",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Success",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{base_url}}/provider",
+                  "host": ["{{base_url}}"],
+                  "path": ["provider"]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": {
+                "mode": "raw",
+                "raw": "[\n  {\n    \"id\": 0,\n    \"cif\": \"string\",\n    \"tradename\": \"string\",\n    \"default_payment_method\": \"cash\",\n    \"business_type\": \"individual\",\n    \"business_name\": \"string\",\n    \"name\": \"string\",\n    \"surname_1\": \"string\",\n    \"surname_2\": \"string\",\n    \"address\": \"string\",\n    \"postal_code\": \"string\",\n    \"town\": \"string\",\n    \"region\": \"string\",\n    \"country_code\": \"string\",\n    \"contact_person\": \"string\",\n    \"phone\": \"string\",\n    \"email\": \"string\",\n    \"web\": \"string\",\n    \"fax\": \"string\",\n    \"personal_comment\": \"string\"\n  }\n]"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Create Provider",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"address\": \"string\",\n  \"town\": \"string\",\n  \"postal_code\": \"string\",\n  \"cif\": \"string\",\n  \"tradename\": \"string\",\n  \"business_name\": \"string\",\n  \"name\": \"string\",\n  \"surname_1\": \"string\",\n  \"business_type\": \"individual\",\n  \"region\": \"string\",\n  \"country_code\": \"ES\",\n  \"default_payment_method\": \"cash\",\n  \"phone\": \"string\",\n  \"email\": \"string\",\n  \"contact_person\": \"string\",\n  \"personal_comment\": \"string\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/provider",
+              "host": ["{{base_url}}"],
+              "path": ["provider"]
+            }
+          },
+          "response": [
+            {
+              "name": "Success",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "url": {
+                  "raw": "{{base_url}}/provider",
+                  "host": ["{{base_url}}"],
+                  "path": ["provider"]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": {
+                "mode": "raw",
+                "raw": "{\n  \"id\": 0,\n  \"cif\": \"string\",\n  \"tradename\": \"string\",\n  \"default_payment_method\": \"cash\",\n  \"business_type\": \"individual\",\n  \"business_name\": \"string\",\n  \"name\": \"string\",\n  \"surname_1\": \"string\",\n  \"surname_2\": \"string\",\n  \"address\": \"string\",\n  \"postal_code\": \"string\",\n  \"town\": \"string\",\n  \"region\": \"string\",\n  \"country_code\": \"string\",\n  \"contact_person\": \"string\",\n  \"phone\": \"string\",\n  \"email\": \"string\",\n  \"web\": \"string\",\n  \"fax\": \"string\",\n  \"personal_comment\": \"string\"\n}"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Get Provider by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/provider/:id",
+              "host": ["{{base_url}}"],
+              "path": ["provider", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "",
+                  "description": "The ID of the provider to retrieve"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Update Provider",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"address\": \"string\",\n  \"town\": \"string\",\n  \"postal_code\": \"string\",\n  \"cif\": \"string\",\n  \"tradename\": \"string\",\n  \"business_name\": \"string\",\n  \"name\": \"string\",\n  \"surname_1\": \"string\",\n  \"business_type\": \"individual\",\n  \"region\": \"string\",\n  \"country_code\": \"ES\",\n  \"default_payment_method\": \"cash\",\n  \"phone\": \"string\",\n  \"email\": \"string\",\n  \"contact_person\": \"string\",\n  \"personal_comment\": \"string\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/provider/:id",
+              "host": ["{{base_url}}"],
+              "path": ["provider", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "",
+                  "description": "The ID of the provider to update"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Delete Provider",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/provider/:id",
+              "host": ["{{base_url}}"],
+              "path": ["provider", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "",
+                  "description": "The ID of the provider to delete"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Customer",
+      "item": [
+        {
+          "name": "List Customers",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/customer?page_size=100&page=1",
+              "host": ["{{base_url}}"],
+              "path": ["customer"],
+              "query": [
+                {
+                  "key": "page_size",
+                  "value": "100",
+                  "description": "Number of items per page (Max 300)"
+                },
+                {
+                  "key": "page",
+                  "value": "1",
+                  "description": "Page number"
+                },
+                {
+                  "key": "q",
+                  "value": "",
+                  "description": "Search term",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Success",
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": {
+                "mode": "raw",
+                "raw": "[\n  {\n    \"id\": 0,\n    \"cif\": \"string\",\n    \"tradename\": \"string\",\n    \"default_payment_method\": \"cash\",\n    \"business_type\": \"individual\",\n    \"business_name\": \"string\",\n    \"name\": \"string\",\n    \"surname_1\": \"string\",\n    \"surname_2\": \"string\",\n    \"address\": \"string\",\n    \"postal_code\": \"string\",\n    \"town\": \"string\",\n    \"region\": \"string\",\n    \"country_code\": \"string\",\n    \"contact_person\": \"string\",\n    \"phone\": \"string\",\n    \"email\": \"string\",\n    \"web\": \"string\",\n    \"fax\": \"string\",\n    \"personal_comment\": \"string\"\n  }\n]"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Create Customer",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"address\": \"string\",\n  \"town\": \"string\",\n  \"postal_code\": \"string\",\n  \"cif\": \"string\",\n  \"tradename\": \"string\",\n  \"business_name\": \"string\",\n  \"name\": \"string\",\n  \"surname_1\": \"string\",\n  \"business_type\": \"individual\",\n  \"region\": \"string\",\n  \"country_code\": \"ES\",\n  \"default_payment_method\": \"cash\",\n  \"phone\": \"string\",\n  \"email\": \"string\",\n  \"contact_person\": \"string\",\n  \"personal_comment\": \"string\",\n  \"default_invoice_language\": \"default\",\n  \"has_surcharge\": false\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/customer",
+              "host": ["{{base_url}}"],
+              "path": ["customer"]
+            }
+          }
+        },
+        {
+          "name": "Get Customer by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/customer/:id",
+              "host": ["{{base_url}}"],
+              "path": ["customer", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "",
+                  "description": "The ID of the customer to retrieve"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Update Customer",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"address\": \"string\",\n  \"town\": \"string\",\n  \"postal_code\": \"string\",\n  \"cif\": \"string\",\n  \"tradename\": \"string\",\n  \"business_name\": \"string\",\n  \"name\": \"string\",\n  \"surname_1\": \"string\",\n  \"business_type\": \"individual\",\n  \"region\": \"string\",\n  \"country_code\": \"ES\",\n  \"default_payment_method\": \"cash\",\n  \"phone\": \"string\",\n  \"email\": \"string\",\n  \"contact_person\": \"string\",\n  \"personal_comment\": \"string\",\n  \"default_invoice_language\": \"default\",\n  \"has_surcharge\": false\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/customer/:id",
+              "host": ["{{base_url}}"],
+              "path": ["customer", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "",
+                  "description": "The ID of the customer to update"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Delete Customer",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/customer/:id",
+              "host": ["{{base_url}}"],
+              "path": ["customer", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "",
+                  "description": "The ID of the customer to delete"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Invoice",
+      "item": [
+        {
+          "name": "List Invoices",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/invoice?page_size=100&page=1",
+              "host": ["{{base_url}}"],
+              "path": ["invoice"],
+              "query": [
+                {
+                  "key": "page_size",
+                  "value": "100",
+                  "description": "Number of items per page (Max 300)"
+                },
+                {
+                  "key": "page",
+                  "value": "1",
+                  "description": "Page number"
+                },
+                {
+                  "key": "customer",
+                  "value": "",
+                  "description": "Filter by customer ID",
+                  "disabled": true
+                },
+                {
+                  "key": "min_total_limit",
+                  "value": "",
+                  "description": "Minimum total amount",
+                  "disabled": true
+                },
+                {
+                  "key": "max_total_limit",
+                  "value": "",
+                  "description": "Maximum total amount",
+                  "disabled": true
+                },
+                {
+                  "key": "initial_date",
+                  "value": "",
+                  "description": "Start date (yyyy-MM-dd)",
+                  "disabled": true
+                },
+                {
+                  "key": "end_date",
+                  "value": "",
+                  "description": "End date (yyyy-MM-dd)",
+                  "disabled": true
+                },
+                {
+                  "key": "serie",
+                  "value": "",
+                  "description": "Invoice series name",
+                  "disabled": true
+                },
+                {
+                  "key": "description",
+                  "value": "",
+                  "description": "Filter by description text",
+                  "disabled": true
+                },
+                {
+                  "key": "issued",
+                  "value": "",
+                  "description": "Filter by status (true/false)",
+                  "disabled": true
+                },
+                {
+                  "key": "sort",
+                  "value": "",
+                  "description": "Sort order (e.g., date:desc,number:asc)",
+                  "disabled": true
+                },
+                {
+                  "key": "tags",
+                  "value": "",
+                  "description": "Filter by tags (comma-separated)",
+                  "disabled": true
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Create Invoice",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"issued\": true,\n  \"invoice_lines\": [\n    {\n      \"quantity\": 1,\n      \"concept\": \"string\",\n      \"amount\": 0,\n      \"discount\": 0,\n      \"tax\": 21,\n      \"retention\": 0,\n      \"sell_type\": \"service\",\n      \"tax_regime\": \"string\",\n      \"tax_subjection_code\": \"string\"\n    }\n  ],\n  \"charges\": [\n    {\n      \"amount\": 0,\n      \"payment_method\": \"cash\",\n      \"date\": \"2024-03-21\",\n      \"destination_account_id\": 0\n    }\n  ],\n  \"description\": \"string\",\n  \"date\": \"2024-03-21\",\n  \"customer\": 0,\n  \"tags\": [\"string\"]\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/invoice",
+              "host": ["{{base_url}}"],
+              "path": ["invoice"]
+            }
+          }
+        },
+        {
+          "name": "Get Invoice by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/invoice/:id",
+              "host": ["{{base_url}}"],
+              "path": ["invoice", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "",
+                  "description": "The ID of the invoice to retrieve"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Update Invoice",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"issued\": true,\n  \"customer\": 0,\n  \"invoice_lines\": [\n    {\n      \"id\": 0,\n      \"quantity\": 1,\n      \"concept\": \"string\",\n      \"amount\": 0,\n      \"discount\": 0,\n      \"tax\": 21,\n      \"retention\": 0,\n      \"sell_type\": \"service\",\n      \"tax_regime\": \"string\",\n      \"tax_subjection_code\": \"string\"\n    }\n  ],\n  \"charges\": [\n    {\n      \"id\": 0,\n      \"amount\": 0,\n      \"payment_method\": \"cash\",\n      \"date\": \"2024-03-21\",\n      \"destination_account_id\": 0\n    }\n  ]\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/invoice/:id",
+              "host": ["{{base_url}}"],
+              "path": ["invoice", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "",
+                  "description": "The ID of the invoice to update"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Delete Invoice",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/invoice/:id",
+              "host": ["{{base_url}}"],
+              "path": ["invoice", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "",
+                  "description": "The ID of the invoice to delete"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Invoice Public Link",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/invoice/:id/public",
+              "host": ["{{base_url}}"],
+              "path": ["invoice", ":id", "public"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "",
+                  "description": "The ID of the invoice"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Update Invoice Charges",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"charges\": [\n    {\n      \"id\": 0,\n      \"amount\": 0,\n      \"payment_method\": \"cash\",\n      \"date\": \"2024-03-21\",\n      \"destination_account_id\": 0\n    }\n  ]\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/invoice/:id/charges",
+              "host": ["{{base_url}}"],
+              "path": ["invoice", ":id", "charges"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "",
+                  "description": "The ID of the invoice"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Email Invoice",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"to\": [\"string\"],\n  \"reply_to\": \"string\",\n  \"subject\": \"string\",\n  \"body\": \"string\",\n  \"cc\": [\"string\"],\n  \"cc_me\": true,\n  \"show_card_payment\": true,\n  \"include_pdf\": true\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/invoice/:id/email",
+              "host": ["{{base_url}}"],
+              "path": ["invoice", ":id", "email"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "",
+                  "description": "The ID of the invoice"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Download Invoice PDF",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/invoice/:id/pdf",
+              "host": ["{{base_url}}"],
+              "path": ["invoice", ":id", "pdf"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "",
+                  "description": "The ID of the invoice"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Income",
+      "item": [
+        {
+          "name": "List Incomes",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/income?page_size=100&page=1",
+              "host": ["{{base_url}}"],
+              "path": ["income"],
+              "query": [
+                {
+                  "key": "page_size",
+                  "value": "100",
+                  "description": "Number of items per page (Max 300)"
+                },
+                {
+                  "key": "page",
+                  "value": "1",
+                  "description": "Page number"
+                },
+                {
+                  "key": "customer",
+                  "value": "",
+                  "description": "Filter by customer ID",
+                  "disabled": true
+                },
+                {
+                  "key": "min_total_limit",
+                  "value": "",
+                  "description": "Minimum total amount",
+                  "disabled": true
+                },
+                {
+                  "key": "max_total_limit",
+                  "value": "",
+                  "description": "Maximum total amount",
+                  "disabled": true
+                },
+                {
+                  "key": "initial_date",
+                  "value": "",
+                  "description": "Start date (yyyy-MM-dd)",
+                  "disabled": true
+                },
+                {
+                  "key": "end_date",
+                  "value": "",
+                  "description": "End date (yyyy-MM-dd)",
+                  "disabled": true
+                },
+                {
+                  "key": "sort",
+                  "value": "",
+                  "description": "Sort order",
+                  "disabled": true
+                },
+                {
+                  "key": "tags",
+                  "value": "",
+                  "description": "Filter by tags (comma-separated)",
+                  "disabled": true
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Create Income",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"customer\": 0,\n  \"income_lines\": [\n    {\n      \"concept\": \"string\",\n      \"amount\": 0,\n      \"tax\": 21,\n      \"retention\": 0,\n      \"imputation\": 0,\n      \"income_type\": \"string\",\n      \"tax_regime\": \"string\",\n      \"tax_subjection_code\": \"string\"\n    }\n  ],\n  \"charges\": [\n    {\n      \"amount\": 0,\n      \"payment_method\": \"cash\",\n      \"date\": \"2024-03-21\",\n      \"destination_account_id\": 0\n    }\n  ],\n  \"date\": \"2024-03-21\",\n  \"document_type\": \"other_invoice\",\n  \"document_number\": \"string\",\n  \"annotations\": \"string\",\n  \"tags\": [\"string\"]\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/income",
+              "host": ["{{base_url}}"],
+              "path": ["income"]
+            }
+          }
+        },
+        {
+          "name": "Get Income by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/income/:id",
+              "host": ["{{base_url}}"],
+              "path": ["income", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "",
+                  "description": "The ID of the income to retrieve"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Update Income",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"customer\": 0,\n  \"income_lines\": [\n    {\n      \"id\": 0,\n      \"concept\": \"string\",\n      \"amount\": 0,\n      \"tax\": 21,\n      \"retention\": 0,\n      \"imputation\": 0,\n      \"income_type\": \"string\",\n      \"tax_regime\": \"string\",\n      \"tax_subjection_code\": \"string\"\n    }\n  ],\n  \"charges\": [\n    {\n      \"id\": 0,\n      \"amount\": 0,\n      \"payment_method\": \"cash\",\n      \"date\": \"2024-03-21\",\n      \"destination_account_id\": 0\n    }\n  ]\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/income/:id",
+              "host": ["{{base_url}}"],
+              "path": ["income", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "",
+                  "description": "The ID of the income to update"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Delete Income",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/income/:id",
+              "host": ["{{base_url}}"],
+              "path": ["income", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "",
+                  "description": "The ID of the income to delete"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Income Attachment",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/income/:id/attachment",
+              "host": ["{{base_url}}"],
+              "path": ["income", ":id", "attachment"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "",
+                  "description": "The ID of the income"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Delete Income Attachment",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/income/:id/attachment",
+              "host": ["{{base_url}}"],
+              "path": ["income", ":id", "attachment"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "",
+                  "description": "The ID of the income"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Update Income Attachment",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"filename\": \"string\",\n  \"data\": \"string\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/income/:id/attachment",
+              "host": ["{{base_url}}"],
+              "path": ["income", ":id", "attachment"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "",
+                  "description": "The ID of the income"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Update Income Charges",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"charges\": [\n    {\n      \"id\": 0,\n      \"amount\": 0,\n      \"payment_method\": \"cash\",\n      \"date\": \"2024-03-21\",\n      \"destination_account_id\": 0\n    }\n  ]\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/income/:id/charges",
+              "host": ["{{base_url}}"],
+              "path": ["income", ":id", "charges"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "",
+                  "description": "The ID of the income"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Expense",
+      "item": [
+        {
+          "name": "List Expenses",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/expense?page_size=100&page=1",
+              "host": ["{{base_url}}"],
+              "path": ["expense"],
+              "query": [
+                {
+                  "key": "page_size",
+                  "value": "100",
+                  "description": "Number of items per page (Max 300)"
+                },
+                {
+                  "key": "page",
+                  "value": "1",
+                  "description": "Page number"
+                },
+                {
+                  "key": "provider",
+                  "value": "",
+                  "description": "Filter by provider ID",
+                  "disabled": true
+                },
+                {
+                  "key": "min_total_limit",
+                  "value": "",
+                  "description": "Minimum total amount",
+                  "disabled": true
+                },
+                {
+                  "key": "max_total_limit",
+                  "value": "",
+                  "description": "Maximum total amount",
+                  "disabled": true
+                },
+                {
+                  "key": "initial_date",
+                  "value": "",
+                  "description": "Start date (yyyy-MM-dd)",
+                  "disabled": true
+                },
+                {
+                  "key": "end_date",
+                  "value": "",
+                  "description": "End date (yyyy-MM-dd)",
+                  "disabled": true
+                },
+                {
+                  "key": "expense_type",
+                  "value": "",
+                  "description": "Filter by expense type code",
+                  "disabled": true
+                },
+                {
+                  "key": "investment_type",
+                  "value": "",
+                  "description": "Filter by investment type code",
+                  "disabled": true
+                },
+                {
+                  "key": "draft",
+                  "value": "",
+                  "description": "Filter by status (true/false)",
+                  "disabled": true
+                },
+                {
+                  "key": "sort",
+                  "value": "",
+                  "description": "Sort order",
+                  "disabled": true
+                },
+                {
+                  "key": "tags",
+                  "value": "",
+                  "description": "Filter by tags (comma-separated)",
+                  "disabled": true
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Create Expense",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"date\": \"2024-03-21\",\n  \"draft\": true,\n  \"provider\": 0,\n  \"document_type\": \"invoice\",\n  \"expense_lines\": [\n    {\n      \"draft\": true,\n      \"investment\": false,\n      \"description\": \"string\",\n      \"base\": 0,\n      \"tax\": 21,\n      \"retention\": 0,\n      \"expense_type\": \"string\"\n    }\n  ],\n  \"payments\": [\n    {\n      \"amount\": 0,\n      \"payment_method\": \"cash\",\n      \"date\": \"2024-03-21\",\n      \"origin_account\": 0\n    }\n  ],\n  \"document_number\": \"string\",\n  \"tags\": [\"string\"],\n  \"annotations\": \"string\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/expense",
+              "host": ["{{base_url}}"],
+              "path": ["expense"]
+            }
+          }
+        },
+        {
+          "name": "Get Expense by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/expense/:id",
+              "host": ["{{base_url}}"],
+              "path": ["expense", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "",
+                  "description": "The ID of the expense to retrieve"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Update Expense",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"date\": \"2024-03-21\",\n  \"draft\": true,\n  \"provider\": 0,\n  \"document_type\": \"invoice\",\n  \"expense_lines\": [\n    {\n      \"id\": 0,\n      \"draft\": true,\n      \"investment\": false,\n      \"description\": \"string\",\n      \"base\": 0,\n      \"tax\": 21,\n      \"retention\": 0,\n      \"expense_type\": \"string\"\n    }\n  ],\n  \"payments\": [\n    {\n      \"id\": 0,\n      \"amount\": 0,\n      \"payment_method\": \"cash\",\n      \"date\": \"2024-03-21\",\n      \"origin_account\": 0\n    }\n  ]\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/expense/:id",
+              "host": ["{{base_url}}"],
+              "path": ["expense", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "",
+                  "description": "The ID of the expense to update"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Delete Expense",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/expense/:id",
+              "host": ["{{base_url}}"],
+              "path": ["expense", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "",
+                  "description": "The ID of the expense to delete"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Expense Attachment",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/expense/:id/attachment",
+              "host": ["{{base_url}}"],
+              "path": ["expense", ":id", "attachment"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "",
+                  "description": "The ID of the expense"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Delete Expense Attachment",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/expense/:id/attachment",
+              "host": ["{{base_url}}"],
+              "path": ["expense", ":id", "attachment"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "",
+                  "description": "The ID of the expense"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Update Expense Attachment",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"filename\": \"string\",\n  \"data\": \"string\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/expense/:id/attachment",
+              "host": ["{{base_url}}"],
+              "path": ["expense", ":id", "attachment"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "",
+                  "description": "The ID of the expense"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Update Expense Payments",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"payments\": [\n    {\n      \"id\": 0,\n      \"amount\": 0,\n      \"payment_method\": \"cash\",\n      \"date\": \"2024-03-21\",\n      \"origin_account\": 0\n    }\n  ]\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/expense/:id/payments",
+              "host": ["{{base_url}}"],
+              "path": ["expense", ":id", "payments"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "",
+                  "description": "The ID of the expense"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Document",
+      "item": [
+        {
+          "name": "List Documents",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/document?page_size=100&page=1",
+              "host": ["{{base_url}}"],
+              "path": ["document"],
+              "query": [
+                {
+                  "key": "page_size",
+                  "value": "100",
+                  "description": "Number of items per page (Max 300)"
+                },
+                {
+                  "key": "page",
+                  "value": "1",
+                  "description": "Page number"
+                },
+                {
+                  "key": "sort",
+                  "value": "",
+                  "description": "Sort order (asc/desc)",
+                  "disabled": true
+                },
+                {
+                  "key": "initial_date",
+                  "value": "",
+                  "description": "Start date (yyyy-MM-dd)",
+                  "disabled": true
+                },
+                {
+                  "key": "end_date",
+                  "value": "",
+                  "description": "End date (yyyy-MM-dd)",
+                  "disabled": true
+                },
+                {
+                  "key": "keyword",
+                  "value": "",
+                  "description": "Search term",
+                  "disabled": true
+                },
+                {
+                  "key": "assigned",
+                  "value": "",
+                  "description": "Filter by assignment status",
+                  "disabled": true
+                },
+                {
+                  "key": "extension",
+                  "value": "",
+                  "description": "Filter by file extensions",
+                  "disabled": true
+                },
+                {
+                  "key": "hash",
+                  "value": "",
+                  "description": "Filter by MD5 hash",
+                  "disabled": true
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Upload Document",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"attachment\": {\n    \"filename\": \"string\",\n    \"data\": \"string\"\n  },\n  \"date\": \"2024-03-21\",\n  \"expense_id\": 0\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/document",
+              "host": ["{{base_url}}"],
+              "path": ["document"]
+            }
+          }
+        },
+        {
+          "name": "Get Document by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/document/:id",
+              "host": ["{{base_url}}"],
+              "path": ["document", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "",
+                  "description": "The ID of the document to retrieve"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Update Document Metadata",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"date\": \"2024-03-21\",\n  \"expense_id\": 0\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/document/:id",
+              "host": ["{{base_url}}"],
+              "path": ["document", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "",
+                  "description": "The ID of the document to update"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Delete Document",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/document/:id",
+              "host": ["{{base_url}}"],
+              "path": ["document", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "",
+                  "description": "The ID of the document to delete"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Document Attachment Data",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/document/:id/attachment",
+              "host": ["{{base_url}}"],
+              "path": ["document", ":id", "attachment"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "",
+                  "description": "The ID of the document"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Tag",
+      "item": [
+        {
+          "name": "List Tags",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/tag",
+              "host": ["{{base_url}}"],
+              "path": ["tag"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Transfer",
+      "item": [
+        {
+          "name": "List Transfers",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/transfer?page_size=100&page=1",
+              "host": ["{{base_url}}"],
+              "path": ["transfer"],
+              "query": [
+                {
+                  "key": "page_size",
+                  "value": "100",
+                  "description": "Number of items per page (Max 300)"
+                },
+                {
+                  "key": "page",
+                  "value": "1",
+                  "description": "Page number"
+                },
+                {
+                  "key": "origin_account",
+                  "value": "",
+                  "description": "Filter by source account ID",
+                  "disabled": true
+                },
+                {
+                  "key": "destination_account",
+                  "value": "",
+                  "description": "Filter by destination account ID",
+                  "disabled": true
+                },
+                {
+                  "key": "payment_method",
+                  "value": "",
+                  "description": "Filter by payment method",
+                  "disabled": true
+                },
+                {
+                  "key": "sort",
+                  "value": "",
+                  "description": "Sort order (asc/desc)",
+                  "disabled": true
+                },
+                {
+                  "key": "min_total_limit",
+                  "value": "",
+                  "description": "Minimum amount",
+                  "disabled": true
+                },
+                {
+                  "key": "max_total_limit",
+                  "value": "",
+                  "description": "Maximum amount",
+                  "disabled": true
+                },
+                {
+                  "key": "initial_date",
+                  "value": "",
+                  "description": "Start date (yyyy-MM-dd)",
+                  "disabled": true
+                },
+                {
+                  "key": "end_date",
+                  "value": "",
+                  "description": "End date (yyyy-MM-dd)",
+                  "disabled": true
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Create Transfer",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"amount\": 0,\n  \"concept\": \"string\",\n  \"destination_account\": 0,\n  \"origin_account\": 0,\n  \"payment_method\": \"cash\",\n  \"date\": \"2024-03-21\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/transfer",
+              "host": ["{{base_url}}"],
+              "path": ["transfer"]
+            }
+          }
+        },
+        {
+          "name": "Get Transfer by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/transfer/:id",
+              "host": ["{{base_url}}"],
+              "path": ["transfer", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "",
+                  "description": "The ID of the transfer to retrieve"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Update Transfer",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"amount\": 0,\n  \"concept\": \"string\",\n  \"destination_account\": 0,\n  \"origin_account\": 0,\n  \"payment_method\": \"cash\",\n  \"date\": \"2024-03-21\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/transfer/:id",
+              "host": ["{{base_url}}"],
+              "path": ["transfer", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "",
+                  "description": "The ID of the transfer to update"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Delete Transfer",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/transfer/:id",
+              "host": ["{{base_url}}"],
+              "path": ["transfer", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "",
+                  "description": "The ID of the transfer to delete"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+} 
