@@ -166,6 +166,15 @@ server.tool(
   })
 );
 
+// Provider delete endpoint
+server.tool(
+  "deleteProvider",
+  { id: z.number() },
+  async ({ id }) => ({
+    content: [{ type: "text", text: JSON.stringify(await makeApiCall("delete", `/provider/${id}`), null, 2) }]
+  })
+);
+
 // Customer endpoints
 server.tool(
   "listCustomers",
@@ -243,6 +252,15 @@ server.tool(
   },
   async ({ id, ...data }) => ({
     content: [{ type: "text", text: JSON.stringify(await makeApiCall("put", `/customer/${id}`, data), null, 2) }]
+  })
+);
+
+// Customer delete endpoint
+server.tool(
+  "deleteCustomer",
+  { id: z.number() },
+  async ({ id }) => ({
+    content: [{ type: "text", text: JSON.stringify(await makeApiCall("delete", `/customer/${id}`), null, 2) }]
   })
 );
 
@@ -494,6 +512,16 @@ server.tool(
   })
 );
 
+// Income Attachment delete endpoint
+server.tool(
+  "deleteIncomeAttachment",
+  { id: z.number() },
+  async ({ id }) => ({
+    content: [{ type: "text", text: JSON.stringify(await makeApiCall("delete", `/income/${id}/attachment`), null, 2) }]
+  })
+);
+
+// Income attachment endpoints
 server.tool(
   "getIncomeAttachment",
   { id: z.number() },
@@ -639,6 +667,16 @@ server.tool(
   })
 );
 
+// Expense Attachment delete endpoint
+server.tool(
+  "deleteExpenseAttachment",
+  { id: z.number() },
+  async ({ id }) => ({
+    content: [{ type: "text", text: JSON.stringify(await makeApiCall("delete", `/expense/${id}/attachment`), null, 2) }]
+  })
+);
+
+// Expense attachment endpoints
 server.tool(
   "getExpenseAttachment",
   { id: z.number() },
@@ -811,6 +849,51 @@ server.tool(
   },
   async ({ id, ...data }) => ({
     content: [{ type: "text", text: JSON.stringify(await makeApiCall("put", `/transfer/${id}`, data), null, 2) }]
+  })
+);
+
+// Transfer delete endpoint
+server.tool(
+  "deleteTransfer",
+  { id: z.number() },
+  async ({ id }) => ({
+    content: [{ type: "text", text: JSON.stringify(await makeApiCall("delete", `/transfer/${id}`), null, 2) }]
+  })
+);
+
+// Invoice delete endpoint
+server.tool(
+  "deleteInvoice",
+  { id: z.number() },
+  async ({ id }) => ({
+    content: [{ type: "text", text: JSON.stringify(await makeApiCall("delete", `/invoice/${id}`), null, 2) }]
+  })
+);
+
+// Income delete endpoint
+server.tool(
+  "deleteIncome",
+  { id: z.number() },
+  async ({ id }) => ({
+    content: [{ type: "text", text: JSON.stringify(await makeApiCall("delete", `/income/${id}`), null, 2) }]
+  })
+);
+
+// Expense delete endpoint
+server.tool(
+  "deleteExpense",
+  { id: z.number() },
+  async ({ id }) => ({
+    content: [{ type: "text", text: JSON.stringify(await makeApiCall("delete", `/expense/${id}`), null, 2) }]
+  })
+);
+
+// Document delete endpoint
+server.tool(
+  "deleteDocument",
+  { id: z.number() },
+  async ({ id }) => ({
+    content: [{ type: "text", text: JSON.stringify(await makeApiCall("delete", `/document/${id}`), null, 2) }]
   })
 );
 
