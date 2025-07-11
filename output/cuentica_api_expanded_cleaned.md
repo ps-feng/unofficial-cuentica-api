@@ -749,7 +749,7 @@ The following headers are included in the response for paginated results:
           "amount": "double",
           "payment_method": "string",
           "date": "string", // yyyy-MM-dd
-          "destination_account_id": "long",
+          "destination_account": "long",
           "destination_account_description": "string",
           "origin_account_number": "string", // Present depending on payment method
           "origin_account_description": "string" // Present depending on payment method
@@ -832,7 +832,7 @@ The following headers are included in the response for paginated results:
           "amount": "double",
           "payment_method": "string",
           "date": "string", // yyyy-MM-dd
-          "destination_account_id": "long",
+          "destination_account": "long",
           "destination_account_description": "string",
           "origin_account_number": "string", // Present depending on payment method
           "origin_account_description": "string" // Present depending on payment method
@@ -949,7 +949,7 @@ The following headers are included in the response for paginated results:
           "amount": "double",
           "payment_method": "string",
           "date": "string", // yyyy-MM-dd
-          "destination_account_id": "long",
+          "destination_account": "long",
           "destination_account_description": "string",
           "origin_account_number": "string", // Present depending on payment method
           "origin_account_description": "string" // Present depending on payment method
@@ -1147,7 +1147,7 @@ Represents income/revenue not associated with a standard issued invoice (e.g., b
           "amount": "double",
           "payment_method": "string",
           "date": "string", // yyyy-MM-dd
-          "destination_account_id": "long",
+          "destination_account": "long",
           "destination_account_description": "string",
           "origin_account_number": "string", // Present depending on payment method
           "origin_account_description": "string" // Present depending on payment method
@@ -1228,7 +1228,7 @@ Represents income/revenue not associated with a standard issued invoice (e.g., b
           "amount": "double",
           "payment_method": "string",
           "date": "string", // yyyy-MM-dd
-          "destination_account_id": "long",
+          "destination_account": "long",
           "destination_account_description": "string",
           "origin_account_number": "string", // Present depending on payment method
           "origin_account_description": "string" // Present depending on payment method
@@ -1384,7 +1384,7 @@ Represents income/revenue not associated with a standard issued invoice (e.g., b
           "amount": "double",
           "payment_method": "string",
           "date": "string", // yyyy-MM-dd
-          "destination_account_id": "long",
+          "destination_account": "long",
           "destination_account_description": "string",
           "origin_account_number": "string", // Present depending on payment method
           "origin_account_description": "string" // Present depending on payment method

@@ -293,28 +293,46 @@ server.tool(
     invoice_lines: z.array(
       z.object({
         quantity: z.number(),
-        concept: z.string(),
+        concept: z.string().min(1),
         amount: z.number(),
         discount: z.number().default(0),
-        tax: z.number(),
-        retention: z.number().default(0),
-        sell_type: z.string(),
-        tax_regime: z.string().optional(),
-        tax_subjection_code: z.string().optional()
+        tax: z.union([
+          z.literal(0.0),
+          z.literal(3.0),
+          z.literal(4.0),
+          z.literal(7.0),
+          z.literal(9.5),
+          z.literal(10.0),
+          z.literal(12.0),
+          z.literal(13.5),
+          z.literal(20.0),
+          z.literal(21.0)
+        ]),
+        retention: z.number().min(0).default(0),
+        sell_type: z.enum(["service", "product", "supplied_cost"]),
+        tax_regime: z.enum(["01", "02", "08", "11", "17", "18", "20"]),
+        tax_subjection_code: z.enum(["S1", "S2", "N1", "N2", "E1", "E2", "E3", "E4", "E5"]),
       })
     ),
     charges: z.array(
       z.object({
+        date: z.string().optional(), // yyyy-MM-dd
         amount: z.number(),
-        payment_method: z.string(),
-        date: z.string(), // yyyy-MM-dd
-        destination_account_id: z.number()
+        payment_method: z.enum(["cash", "receipt", "wire_transfer", "card", "promissory_note", "other"]),
+        origin_account: z.number().optional(),
+        destination_account: z.number(),
+        paid: z.boolean().default(false),
       })
-    ).optional(),
+    ),
     description: z.string().optional(),
-    date: z.string(), // yyyy-MM-dd
-    customer: z.number(),
-    tags: z.array(z.string()).optional()
+    annotations: z.string().optional(),
+    date: z.string().optional(), // yyyy-MM-dd
+    serie: z.string().optional(),
+    tags: z.array(z.string()).optional(),
+    number: z.number().optional(),
+    customer: z.number().optional(),
+    footer: z.string().optional(),
+    irm: z.string().optional(), // Invoice Reference Model
   },
   async (data) => ({
     content: [{ type: "text", text: JSON.stringify(await makeApiCall("post", "/invoice", data), null, 2) }]
@@ -339,11 +357,23 @@ server.tool(
       z.object({
         id: z.number().optional(),
         quantity: z.number(),
-        concept: z.string(),
+        concept: z.string().min(1),
         amount: z.number(),
         discount: z.number().default(0),
-        tax: z.number(),
-        retention: z.number().default(0),
+        tax: z.union([
+          z.literal(0.0),
+          z.literal(3.0),
+          z.literal(4.0),
+          z.literal(7.0),
+          z.literal(9.5),
+          z.literal(10.0),
+          z.literal(12.0),
+          z.literal(13.5),
+          z.literal(20.0),
+          z.literal(21.0)
+        ]),
+        surcharge: z.number().optional(),
+        retention: z.number().min(0).default(0),
         sell_type: z.string(),
         tax_regime: z.string().optional(),
         tax_subjection_code: z.string().optional()
@@ -355,7 +385,7 @@ server.tool(
         amount: z.number(),
         payment_method: z.string(),
         date: z.string(), // yyyy-MM-dd
-        destination_account_id: z.number()
+        destination_account: z.number()
       })
     ).optional()
   },
@@ -382,7 +412,7 @@ server.tool(
         amount: z.number(),
         payment_method: z.string(),
         date: z.string(), // yyyy-MM-dd
-        destination_account_id: z.number()
+        destination_account: z.number()
       })
     )
   },
@@ -445,7 +475,7 @@ server.tool(
         concept: z.string(),
         amount: z.number(),
         tax: z.number(),
-        retention: z.number().default(0),
+        retention: z.number().min(0).default(0),
         imputation: z.number().optional(),
         income_type: z.string().optional(),
         tax_regime: z.string().optional(),
@@ -457,7 +487,7 @@ server.tool(
         amount: z.number(),
         payment_method: z.string(),
         date: z.string(), // yyyy-MM-dd
-        destination_account_id: z.number()
+        destination_account: z.number()
       })
     ).optional(),
     date: z.string(), // yyyy-MM-dd
@@ -490,7 +520,7 @@ server.tool(
         concept: z.string(),
         amount: z.number(),
         tax: z.number(),
-        retention: z.number().default(0),
+        retention: z.number().min(0).default(0),
         imputation: z.number().optional(),
         income_type: z.string().optional(),
         tax_regime: z.string().optional(),
@@ -503,7 +533,7 @@ server.tool(
         amount: z.number(),
         payment_method: z.string(),
         date: z.string(), // yyyy-MM-dd
-        destination_account_id: z.number()
+        destination_account: z.number()
       })
     ).optional()
   },
@@ -555,7 +585,7 @@ server.tool(
         amount: z.number(),
         payment_method: z.string(),
         date: z.string(), // yyyy-MM-dd
-        destination_account_id: z.number()
+        destination_account: z.number()
       })
     )
   },
@@ -603,7 +633,7 @@ server.tool(
         description: z.string(),
         base: z.number(),
         tax: z.number(),
-        retention: z.number().default(0),
+        retention: z.number().min(0).default(0),
         expense_type: z.string()
       })
     ),

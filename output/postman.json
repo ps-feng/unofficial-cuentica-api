@@ -618,7 +618,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"issued\": true,\n  \"invoice_lines\": [\n    {\n      \"quantity\": 1,\n      \"concept\": \"string\",\n      \"amount\": 0,\n      \"discount\": 0,\n      \"tax\": 21,\n      \"retention\": 0,\n      \"sell_type\": \"service\",\n      \"tax_regime\": \"string\",\n      \"tax_subjection_code\": \"string\"\n    }\n  ],\n  \"charges\": [\n    {\n      \"amount\": 0,\n      \"payment_method\": \"cash\",\n      \"date\": \"2024-03-21\",\n      \"destination_account_id\": 0\n    }\n  ],\n  \"description\": \"string\",\n  \"date\": \"2024-03-21\",\n  \"customer\": 0,\n  \"tags\": [\"string\"]\n}"
+              "raw": "{\n  \"issued\": true,\n  \"invoice_lines\": [\n    {\n      \"quantity\": 1,\n      \"concept\": \"string\",\n      \"amount\": 0,\n      \"discount\": 0,\n      \"tax\": 21,\n      \"retention\": 0,\n      \"sell_type\": \"service\",\n      \"tax_regime\": \"string\",\n      \"tax_subjection_code\": \"string\"\n    }\n  ],\n  \"charges\": [\n    {\n      \"amount\": 0,\n      \"payment_method\": \"cash\",\n      \"date\": \"2024-03-21\",\n      \"destination_account\": 0\n    }\n  ],\n  \"description\": \"string\",\n  \"date\": \"2024-03-21\",\n  \"customer\": 0,\n  \"tags\": [\"string\"]\n}"
             },
             "url": {
               "raw": "{{base_url}}/invoice",
@@ -658,7 +658,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"issued\": true,\n  \"customer\": 0,\n  \"invoice_lines\": [\n    {\n      \"id\": 0,\n      \"quantity\": 1,\n      \"concept\": \"string\",\n      \"amount\": 0,\n      \"discount\": 0,\n      \"tax\": 21,\n      \"retention\": 0,\n      \"sell_type\": \"service\",\n      \"tax_regime\": \"string\",\n      \"tax_subjection_code\": \"string\"\n    }\n  ],\n  \"charges\": [\n    {\n      \"id\": 0,\n      \"amount\": 0,\n      \"payment_method\": \"cash\",\n      \"date\": \"2024-03-21\",\n      \"destination_account_id\": 0\n    }\n  ]\n}"
+              "raw": "{\n  \"issued\": true,\n  \"customer\": 0,\n  \"invoice_lines\": [\n    {\n      \"id\": 0,\n      \"quantity\": 1,\n      \"concept\": \"string\",\n      \"amount\": 0,\n      \"discount\": 0,\n      \"tax\": 21,\n      \"retention\": 0,\n      \"sell_type\": \"service\",\n      \"tax_regime\": \"string\",\n      \"tax_subjection_code\": \"string\"\n    }\n  ],\n  \"charges\": [\n    {\n      \"id\": 0,\n      \"amount\": 0,\n      \"payment_method\": \"cash\",\n      \"date\": \"2024-03-21\",\n      \"destination_account\": 0\n    }\n  ]\n}"
             },
             "url": {
               "raw": "{{base_url}}/invoice/:id",
@@ -724,7 +724,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"charges\": [\n    {\n      \"id\": 0,\n      \"amount\": 0,\n      \"payment_method\": \"cash\",\n      \"date\": \"2024-03-21\",\n      \"destination_account_id\": 0\n    }\n  ]\n}"
+              "raw": "{\n  \"charges\": [\n    {\n      \"id\": 0,\n      \"amount\": 0,\n      \"payment_method\": \"cash\",\n      \"date\": \"2024-03-21\",\n      \"destination_account\": 0\n    }\n  ]\n}"
             },
             "url": {
               "raw": "{{base_url}}/invoice/:id/charges",
@@ -870,7 +870,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"customer\": 0,\n  \"income_lines\": [\n    {\n      \"concept\": \"string\",\n      \"amount\": 0,\n      \"tax\": 21,\n      \"retention\": 0,\n      \"imputation\": 0,\n      \"income_type\": \"string\",\n      \"tax_regime\": \"string\",\n      \"tax_subjection_code\": \"string\"\n    }\n  ],\n  \"charges\": [\n    {\n      \"amount\": 0,\n      \"payment_method\": \"cash\",\n      \"date\": \"2024-03-21\",\n      \"destination_account_id\": 0\n    }\n  ],\n  \"date\": \"2024-03-21\",\n  \"document_type\": \"other_invoice\",\n  \"document_number\": \"string\",\n  \"annotations\": \"string\",\n  \"tags\": [\"string\"]\n}"
+              "raw": "{\n  \"customer\": 0,\n  \"income_lines\": [\n    {\n      \"concept\": \"string\",\n      \"amount\": 0,\n      \"tax\": 21,\n      \"retention\": 0,\n      \"imputation\": 0,\n      \"income_type\": \"string\",\n      \"tax_regime\": \"string\",\n      \"tax_subjection_code\": \"string\"\n    }\n  ],\n  \"charges\": [\n    {\n      \"amount\": 0,\n      \"payment_method\": \"cash\",\n      \"date\": \"2024-03-21\",\n      \"destination_account\": 0\n    }\n  ],\n  \"date\": \"2024-03-21\",\n  \"document_type\": \"other_invoice\",\n  \"document_number\": \"string\",\n  \"annotations\": \"string\",\n  \"tags\": [\"string\"]\n}"
             },
             "url": {
               "raw": "{{base_url}}/income",
@@ -910,7 +910,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"customer\": 0,\n  \"income_lines\": [\n    {\n      \"id\": 0,\n      \"concept\": \"string\",\n      \"amount\": 0,\n      \"tax\": 21,\n      \"retention\": 0,\n      \"imputation\": 0,\n      \"income_type\": \"string\",\n      \"tax_regime\": \"string\",\n      \"tax_subjection_code\": \"string\"\n    }\n  ],\n  \"charges\": [\n    {\n      \"id\": 0,\n      \"amount\": 0,\n      \"payment_method\": \"cash\",\n      \"date\": \"2024-03-21\",\n      \"destination_account_id\": 0\n    }\n  ]\n}"
+              "raw": "{\n  \"customer\": 0,\n  \"income_lines\": [\n    {\n      \"id\": 0,\n      \"concept\": \"string\",\n      \"amount\": 0,\n      \"tax\": 21,\n      \"retention\": 0,\n      \"imputation\": 0,\n      \"income_type\": \"string\",\n      \"tax_regime\": \"string\",\n      \"tax_subjection_code\": \"string\"\n    }\n  ],\n  \"charges\": [\n    {\n      \"id\": 0,\n      \"amount\": 0,\n      \"payment_method\": \"cash\",\n      \"date\": \"2024-03-21\",\n      \"destination_account\": 0\n    }\n  ]\n}"
             },
             "url": {
               "raw": "{{base_url}}/income/:id",
@@ -1023,7 +1023,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"charges\": [\n    {\n      \"id\": 0,\n      \"amount\": 0,\n      \"payment_method\": \"cash\",\n      \"date\": \"2024-03-21\",\n      \"destination_account_id\": 0\n    }\n  ]\n}"
+              "raw": "{\n  \"charges\": [\n    {\n      \"id\": 0,\n      \"amount\": 0,\n      \"payment_method\": \"cash\",\n      \"date\": \"2024-03-21\",\n      \"destination_account\": 0\n    }\n  ]\n}"
             },
             "url": {
               "raw": "{{base_url}}/income/:id/charges",
