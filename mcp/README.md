@@ -4,7 +4,7 @@ This MCP (Model Context Protocol) server exposes the Cuentica accounting API fun
 
 ## Features
 
-- Provides read and write access to all Cuentica API endpoints (excluding deletion endpoints for safety)
+- Provides read and write access to all Cuentica API endpoints (including deletion endpoints)
 - Authenticates via the `CUENTICA_AUTH_TOKEN` environment variable
 - Runs as a stdio transport server, making it easy to integrate with LLM tools
 
@@ -17,8 +17,8 @@ This MCP (Model Context Protocol) server exposes the Cuentica accounting API fun
 ## Installation
 
 ```bash
-# Install dependencies
-npm install @modelcontextprotocol/sdk zod axios node-fetch@2 express
+# Install dependencies (skip puppeteer download since it's not needed for MCP server)
+PUPPETEER_SKIP_DOWNLOAD=true npm install @modelcontextprotocol/sdk zod axios node-fetch@2 express
 ```
 
 ## Usage
@@ -61,12 +61,14 @@ node mcp/index.js
 - `createProvider` - Creates a new provider
 - `getProviderById` - Gets a specific provider by ID
 - `updateProvider` - Updates an existing provider
+- `deleteProvider` - Deletes a provider
 
 ### Customers
 - `listCustomers` - Lists customers with pagination and filtering
 - `createCustomer` - Creates a new customer
 - `getCustomerById` - Gets a specific customer by ID
 - `updateCustomer` - Updates an existing customer
+- `deleteCustomer` - Deletes a customer
 
 ### Invoices
 - `listInvoices` - Lists invoices with pagination and filtering
@@ -77,6 +79,7 @@ node mcp/index.js
 - `updateInvoiceCharges` - Updates the charges for an invoice
 - `emailInvoice` - Sends an invoice by email
 - `downloadInvoicePdf` - Downloads the PDF version of an invoice
+- `deleteInvoice` - Deletes an invoice
 
 ### Incomes
 - `listIncomes` - Lists incomes with pagination and filtering
@@ -86,6 +89,8 @@ node mcp/index.js
 - `getIncomeAttachment` - Gets the attachment for an income
 - `updateIncomeAttachment` - Updates the attachment for an income
 - `updateIncomeCharges` - Updates the charges for an income
+- `deleteIncome` - Deletes an income
+- `deleteIncomeAttachment` - Deletes an income attachment
 
 ### Expenses
 - `listExpenses` - Lists expenses with pagination and filtering
@@ -95,6 +100,8 @@ node mcp/index.js
 - `getExpenseAttachment` - Gets the attachment for an expense
 - `updateExpenseAttachment` - Updates the attachment for an expense
 - `updateExpensePayments` - Updates the payments for an expense
+- `deleteExpense` - Deletes an expense
+- `deleteExpenseAttachment` - Deletes an expense attachment
 
 ### Documents
 - `listDocuments` - Lists documents with pagination and filtering
@@ -102,6 +109,7 @@ node mcp/index.js
 - `getDocumentById` - Gets a specific document by ID
 - `updateDocumentMetadata` - Updates the metadata for a document
 - `getDocumentAttachmentData` - Gets the attachment data for a document
+- `deleteDocument` - Deletes a document
 
 ### Tags
 - `listTags` - Lists all tags
@@ -111,11 +119,14 @@ node mcp/index.js
 - `createTransfer` - Creates a new transfer
 - `getTransferById` - Gets a specific transfer by ID
 - `updateTransfer` - Updates an existing transfer
+- `deleteTransfer` - Deletes a transfer
 
 ## Security Notes
 
 - The server requires an API token to function properly
-- No deletion endpoints are exposed for safety reasons
+- ⚠️ **WARNING: Deletion endpoints are available and will permanently remove data from Cuentica**
+- Deletion endpoints include: customers, providers, invoices, incomes, expenses, documents, transfers, and attachments
+- Use deletion endpoints with extreme caution as data cannot be recovered
 - All API calls are logged to help with debugging
 - Error handling is implemented to provide meaningful error messages
 
